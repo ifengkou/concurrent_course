@@ -1,0 +1,14 @@
+target/
+logs/
+log
+*.log*
+.DS_Store
+.git
+
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+lib
