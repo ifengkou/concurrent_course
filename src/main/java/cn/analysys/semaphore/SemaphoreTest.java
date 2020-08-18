@@ -22,7 +22,7 @@ public class SemaphoreTest {
          * semaphore.acquire() 请求一个信号量，这时候的信号量个数-1（一旦没有可使用的信号量，也即信号量个数变为负数时，再次请求的时候就会阻塞，直到其他线程释放了信号量）
          * semaphore.release() 释放一个信号量，此时信号量个数+1
          */
-        Semaphore mSemaphore = new Semaphore(concurrentNumb);
+        Semaphore mSemaphore = new Semaphore(concurrentNumb,true);
 
         ExecutorService executor = Executors.newFixedThreadPool(carNumb);
 

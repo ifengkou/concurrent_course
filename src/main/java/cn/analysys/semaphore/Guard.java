@@ -24,17 +24,22 @@ public class Guard implements Runnable {
     @Override
     public void run() {
         try {
+            int availNum = mSemaphore.availablePermits();
+            if(availNum ==0) {
+                System.out.println(System.currentTimeMillis() +  carNo + "排队，当前还有:" + availNum + "个许可证");
+            }
             mSemaphore.acquire();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        log.info("{} 进来了====>",carNo);
+        System.out.println(System.currentTimeMillis() +carNo+"进来了====>");
+
         try {
             Thread.sleep(1000*(new Random()).nextInt(5));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        log.info("{} 出去了",carNo);
+        System.out.println(System.currentTimeMillis() +carNo+"出去了");
         mSemaphore.release();
     }
 }
